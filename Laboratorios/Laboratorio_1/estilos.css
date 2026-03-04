@@ -1,0 +1,46 @@
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    background-color: #e6f2ff;
+    background-image: linear-gradient(#e6f2ff, #b3d9ff);
+}
+
+.mi-tarjeta {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #0059b3;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.foto {
+    border-radius: 50%;
+    margin-bottom: 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.lista-habilidades {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.lista-habilidades li {
+    background-color: #0059b3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.boton-contacto {
+    background-color: #0059b3;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
