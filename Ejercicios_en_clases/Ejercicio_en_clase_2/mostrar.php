@@ -6,7 +6,7 @@ if (!isset($_SESSION['p'])) {
     $_SESSION['p'] = new Pila(10);
 }
 
-echo "<h2>Elementos actuales en la Pila:</h2>";
+echo "<h2>Elementos actuales en la  Pila:</h2>";
 
 $_SESSION['p']->mostrar();
 

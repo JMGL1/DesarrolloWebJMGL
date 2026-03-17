@@ -12,7 +12,7 @@ $exito = $_SESSION['p']->insertar($elemento);
 if ($exito) {
     echo "<h3>Elemento insertado: " . $elemento . "</h3>";
 } else {
-    echo "<h3 style='color:red;'>Error: La pila está llena (Stack Overflow).</h3>";
+    echo "<h3 style='color:red;'>Error: La pila está  llena (Stack Overflow).</h3>";
 }
 
 echo "<p>Regresando al menú en 3 segundos...</p>";

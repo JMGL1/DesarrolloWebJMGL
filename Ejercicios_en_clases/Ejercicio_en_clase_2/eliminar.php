@@ -9,7 +9,7 @@ if (!isset($_SESSION['p'])) {
 $valor = $_SESSION['p']->eliminar();
 
 if ($valor !== null) {
-    echo "<h3>Elemento eliminado de la pila: <span style='color:blue;'>" . $valor . "</span></h3>";
+    echo "<h3>Elemento eliminado de  la pila: <span style='color:blue;'>" . $valor . "</span></h3>";
 } else {
     echo "<h3 style='color:red;'>Error: La pila ya está vacía (Stack Underflow).</h3>";
 }

@@ -32,7 +32,7 @@ class Pila {
 
     function mostrar() {
         if ($this->tope == 0) {
-            echo "La pila está vacía.<br>";
+            echo "La pila está  vacía.<br>";
         } else {
             echo "<strong>--- CIMA ---</strong><br>";
 
