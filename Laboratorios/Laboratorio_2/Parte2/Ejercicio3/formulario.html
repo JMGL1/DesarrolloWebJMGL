@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularios del Reporte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .seccion {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="seccion">
+        <h2>Parte A: Procesador de Nombres</h2>
+        <form method="POST" action="reporte.php">
+            <label>Ingrese nombres separados por comas:</label><br>
+            <textarea name="nombres" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Procesar Nombres">
+        </form>
+    </div>
+
+    <div class="seccion">
+        <h2>Parte C: Buscador de Palabras</h2>
+        <form method="POST" action="reporte.php">
+            <label>Texto:</label><br>
+            <textarea name="texto" rows="5" cols="50"></textarea><br><br>
+            <label>Palabra a buscar:</label>
+            <input type="text" name="palabra"><br><br>
+            <input type="submit" value="Buscar Palabra">
+        </form>
+    </div>
+
+    <div class="seccion">
+        <h2>Ver Reporte Completo (Incluye Parte B)</h2>
+        <form method="POST" action="reporte.php">
+            <input type="submit" value="Generar Reporte de Calificaciones">
+        </form>
+    </div>
+
+</body>
+</html>
