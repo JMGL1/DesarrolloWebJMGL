@@ -2,122 +2,68 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Estudiantil</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .formulario-contenedor { border: 1px solid #ccc; padding: 20px; margin-bottom: 30px; border-radius: 8px; }
-        .campo { margin-bottom: 15px; }
-        label { font-weight: bold; display: block; margin-bottom: 5px; }
-    </style>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-
     <h1>Registro Estudiantil</h1>
 
-    <div class="formulario-contenedor">
+    <div class="contenedor">
         <h2>Formulario vía GET</h2>
-        <form action="procesar.php" method="GET">
-            <div class="campo">
-                <label for="nombre_get">Nombre completo:</label>
-                <input type="text" id="nombre_get" name="nombre">
+        <form action="procesar_registro.php" method="GET">
+            <label>Nombre completo:</label> <input type="text" name="nombre">
+            <label>Correo electrónico:</label> <input type="email" name="correo">
+            <label>Carrera:</label>
+            <select name="carrera">
+                <option value="">Seleccione...</option>
+                <option value="Sistemas">Ingeniería de Sistemas</option>
+                <option value="Computación">Ciencias de la Computación</option>
+            </select>
+            <label>Semestre actual (1 al 10):</label> <input type="number" name="semestre" min="1" max="10">
+            <label>Turno:</label>
+            <div>
+                <input type="radio" name="turno" value="Mañana"> Mañana
+                <input type="radio" name="turno" value="Tarde"> Tarde
+                <input type="radio" name="turno" value="Noche"> Noche
             </div>
-            
-            <div class="campo">
-                <label for="correo_get">Correo electrónico:</label>
-                <input type="email" id="correo_get" name="correo">
+            <label>Materias de interés:</label>
+            <div>
+                <input type="checkbox" name="materias[]" value="Programación Web"> Programación Web
+                <input type="checkbox" name="materias[]" value="Bases de Datos"> Bases de Datos
+                <input type="checkbox" name="materias[]" value="Redes"> Redes
             </div>
-
-            <div class="campo">
-                <label for="carrera_get">Carrera:</label>
-                <select id="carrera_get" name="carrera">
-                    <option value="">Seleccione una carrera...</option>
-                    <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
-                    <option value="Ciencias de la Computación">Ciencias de la Computación</option>
-                    <option value="Ingeniería en Telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                </select>
-            </div>
-
-            <div class="campo">
-                <label for="semestre_get">Semestre actual (1-10):</label>
-                <input type="number" id="semestre_get" name="semestre" min="1" max="10">
-            </div>
-
-            <div class="campo">
-                <label>Turno:</label>
-                <input type="radio" id="manana_get" name="turno" value="Mañana"> <label for="manana_get" style="display:inline; font-weight:normal;">Mañana</label>
-                <input type="radio" id="tarde_get" name="turno" value="Tarde"> <label for="tarde_get" style="display:inline; font-weight:normal;">Tarde</label>
-                <input type="radio" id="noche_get" name="turno" value="Noche"> <label for="noche_get" style="display:inline; font-weight:normal;">Noche</label>
-            </div>
-
-            <div class="campo">
-                <label>Materias de interés:</label>
-                <input type="checkbox" name="materias[]" value="Programación Web"> Programación Web<br>
-                <input type="checkbox" name="materias[]" value="Bases de Datos"> Bases de Datos<br>
-                <input type="checkbox" name="materias[]" value="Redes"> Redes<br>
-                <input type="checkbox" name="materias[]" value="Inteligencia Artificial"> Inteligencia Artificial
-            </div>
-
-            <div class="campo">
-                <label for="comentarios_get">Comentarios:</label>
-                <textarea id="comentarios_get" name="comentarios" rows="4" cols="50"></textarea>
-            </div>
-
+            <label>Comentarios:</label> <textarea name="comentarios" rows="3"></textarea>
             <button type="submit">Enviar por GET</button>
         </form>
     </div>
 
-    <div class="formulario-contenedor">
+    <div class="contenedor">
         <h2>Formulario vía POST</h2>
-        <form action="procesar.php" method="POST">
-            <div class="campo">
-                <label for="nombre_post">Nombre completo:</label>
-                <input type="text" id="nombre_post" name="nombre">
+        <form action="procesar_registro.php" method="POST">
+            <label>Nombre completo:</label> <input type="text" name="nombre">
+            <label>Correo electrónico:</label> <input type="email" name="correo">
+            <label>Carrera:</label>
+            <select name="carrera">
+                <option value="">Seleccione...</option>
+                <option value="Sistemas">Ingeniería de Sistemas</option>
+                <option value="Computación">Ciencias de la Computación</option>
+            </select>
+            <label>Semestre actual (1 al 10):</label> <input type="number" name="semestre" min="1" max="10">
+            <label>Turno:</label>
+            <div>
+                <input type="radio" name="turno" value="Mañana"> Mañana
+                <input type="radio" name="turno" value="Tarde"> Tarde
+                <input type="radio" name="turno" value="Noche"> Noche
             </div>
-            
-            <div class="campo">
-                <label for="correo_post">Correo electrónico:</label>
-                <input type="email" id="correo_post" name="correo">
+            <label>Materias de interés:</label>
+            <div>
+                <input type="checkbox" name="materias[]" value="Programación Web"> Programación Web
+                <input type="checkbox" name="materias[]" value="Bases de Datos"> Bases de Datos
+                <input type="checkbox" name="materias[]" value="Redes"> Redes
             </div>
-
-            <div class="campo">
-                <label for="carrera_post">Carrera:</label>
-                <select id="carrera_post" name="carrera">
-                    <option value="">Seleccione una carrera...</option>
-                    <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
-                    <option value="Ciencias de la Computación">Ciencias de la Computación</option>
-                    <option value="Ingeniería en Telecomunicaciones">Ingeniería en Telecomunicaciones</option>
-                </select>
-            </div>
-
-            <div class="campo">
-                <label for="semestre_post">Semestre actual (1-10):</label>
-                <input type="number" id="semestre_post" name="semestre" min="1" max="10">
-            </div>
-
-            <div class="campo">
-                <label>Turno:</label>
-                <input type="radio" id="manana_post" name="turno" value="Mañana"> <label for="manana_post" style="display:inline; font-weight:normal;">Mañana</label>
-                <input type="radio" id="tarde_post" name="turno" value="Tarde"> <label for="tarde_post" style="display:inline; font-weight:normal;">Tarde</label>
-                <input type="radio" id="noche_post" name="turno" value="Noche"> <label for="noche_post" style="display:inline; font-weight:normal;">Noche</label>
-            </div>
-
-            <div class="campo">
-                <label>Materias de interés:</label>
-                <input type="checkbox" name="materias[]" value="Programación Web"> Programación Web<br>
-                <input type="checkbox" name="materias[]" value="Bases de Datos"> Bases de Datos<br>
-                <input type="checkbox" name="materias[]" value="Redes"> Redes<br>
-                <input type="checkbox" name="materias[]" value="Inteligencia Artificial"> Inteligencia Artificial
-            </div>
-
-            <div class="campo">
-                <label for="comentarios_post">Comentarios:</label>
-                <textarea id="comentarios_post" name="comentarios" rows="4" cols="50"></textarea>
-            </div>
-
+            <label>Comentarios:</label> <textarea name="comentarios" rows="3"></textarea>
             <button type="submit">Enviar por POST</button>
         </form>
     </div>
-
 </body>
 </html>
