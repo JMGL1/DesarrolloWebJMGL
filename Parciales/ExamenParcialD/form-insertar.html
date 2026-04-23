@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Libro – SIS 256</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e8e8e8;
+      display: flex;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+      width: 900px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #2C3E50;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    header .escudo {
+      width: 80px; height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    header .escudo span { font-size: 11px; color: #2C3E50; font-weight: bold; }
+    header .header-text { color: #fff; }
+    header .header-text h1 { font-size: 18px; font-weight: bold; }
+    header .header-text p { font-size: 14px; margin-top: 4px; opacity: 0.85; }
+
+    .zona-central { display: flex; flex: 1; }
+
+    .contenido-principal {
+      flex: 1;
+      background: #F4ECF7;
+      padding: 30px;
+      min-height: 300px;
+    }
+
+    h2 {
+      color: #8E44AD;
+      font-size: 20px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #8E44AD;
+      padding-bottom: 8px;
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 24px;
+      max-width: 480px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: #8E44AD;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn-guardar {
+      background: #8E44AD;
+      color: #fff;
+      padding: 11px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-guardar:hover { background: #6C3483; }
+
+    .btn-cancelar {
+      background: #95A5A6;
+      color: #fff;
+      padding: 11px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .btn-cancelar:hover { background: #7F8C8D; }
+
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      background: #8E44AD;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 18px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      border-left: 4px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .sidebar a:hover {
+      background: #D2B4DE;
+      color: #2C3E50;
+      border-left: 4px solid #2C3E50;
+    }
+
+    .sidebar a.active {
+      background: #6C3483;
+      border-left: 4px solid #fff;
+    }
+
+    footer {
+      background: #1A1A2E;
+      color: #ccc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 16px 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="escudo"><span>Escudo</span></div>
+    <div class="header-text">
+      <h1>UNIVERSIDAD DE SAN FRANCISCO XAVIER</h1>
+      <p>Primer Examen Parcial – SIS 256</p>
+    </div>
+  </header>
+
+  <div class="zona-central">
+    <div class="contenido-principal">
+      <h2>Nuevo Libro</h2>
+
+      <div class="form-card">
+        <form action="insertar.php" method="POST">
+          <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo"
+                   placeholder="Ej: Introducción a la Informática" required>
+          </div>
+          <div class="form-group">
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor"
+                   placeholder="Ej: Michael Miller" required>
+          </div>
+          <div class="form-group">
+            <label for="anio">Año:</label>
+            <input type="number" id="anio" name="anio"
+                   placeholder="Ej: 2020" min="1900" max="2100" required>
+          </div>
+          <div class="form-group">
+            <label for="editorial">Editorial:</label>
+            <input type="text" id="editorial" name="editorial"
+                   placeholder="Ej: Pearson" required>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-guardar">💾 Guardar</button>
+            <a href="listar.php" class="btn-cancelar">✖ Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <nav class="sidebar">
+      <a href="inicio.html">Inicio</a>
+      <a href="pregunta2.html">Pregunta 2</a>
+      <a href="menu3.php">Pregunta 3</a>
+      <a href="listar.php" class="active">Pregunta 4</a>
+    </nav>
+  </div>
+
+  <footer>
+    <span>Gestión 1-2026</span>
+    <span>SIS 256</span>
+    <span>USFX</span>
+  </footer>
+
+</div>
+</body>
+</html>
