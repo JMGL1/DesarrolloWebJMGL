@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 4 - Inspector de enlaces</title>
+    <style>
+        .info-url { color: #d9534f; font-size: 12px; margin-top: 0px; }
+    </style>
+</head>
+<body>
+    <h3>Mis enlaces favoritos</h3>
+    
+    <div>
+        <a href="https://www.google.com">Buscador Google</a>
+    </div>
+    <br>
+    <div>
+        <a href="https://developer.mozilla.org">Documentación MDN</a>
+    </div>
+    <br>
+    <div>
+        <a href="https://www.usfx.bo">Universidad USFX</a>
+    </div>
+
+    <script type="text/javascript">
+
+        const enlaces = document.querySelectorAll("a");
+
+        enlaces.forEach(enlace => {
+
+            let urlDestino = enlace.href;
+
+            let parrafo = document.createElement("p");
+            parrafo.textContent = "Este enlace te lleva a: " + urlDestino;
+            parrafo.setAttribute("class", "info-url");
+
+            enlace.parentNode.insertBefore(parrafo, enlace.nextSibling);
+        });
+    </script>
+</body>
+</html>

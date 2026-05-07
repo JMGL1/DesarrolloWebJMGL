@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 5 - Modificar Lista</title>
+    <style>
+        li { padding: 5px; border: 1px solid #ccc; margin: 2px; cursor:pointer;}
+    </style>
+</head>
+<body>
+    <h3>Lista de tareas:</h3>
+    
+    <ul id="miLista">
+        <li>Estudiar JavaScript</li>
+        <li>Practicar DOM</li>
+        <li>Hacer ejercicios</li>
+    </ul>
+
+    <p>Elemento seleccionado: <strong id="lblSeleccionado">Ninguno</strong></p>
+
+    <label>Color (en inglés): </label>
+    <input type="text" id="inputColorLista" placeholder="ej. blue, red...">
+    <button id="btnCambiarColorLista">Cambiar color fondo</button>
+
+    <script type="text/javascript">
+        let elementosLista = document.getElementsByTagName("li");
+        let lblSeleccionado = document.getElementById("lblSeleccionado");
+        let nodoSeleccionado = null;
+
+        for(let i = 0; i < elementosLista.length; i++) {
+            elementosLista[i].onclick = function() {
+                nodoSeleccionado = this;
+                lblSeleccionado.textContent = this.textContent;
+            };
+        }
+
+        let btnCambiarColorLista = document.getElementById("btnCambiarColorLista");
+        
+        btnCambiarColorLista.onclick = function() {
+
+            if(nodoSeleccionado !== null) {
+
+                let colorDeseado = document.getElementById("inputColorLista").value;
+                nodoSeleccionado.style.backgroundColor = colorDeseado;
+            } else {
+                alert("Por favor selecciona un <li> haciendo clic sobre él primero.");
+            }
+        };
+    </script>
+</body>
+</html>

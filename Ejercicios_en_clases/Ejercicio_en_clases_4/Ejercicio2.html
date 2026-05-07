@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .caja-form {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .grupo {
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: bottom;
+        }
+        .grupo label {
+            display: block;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .grupo input[type="text"] {
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        .txtNombre { width: 180px; }
+        .txtEdad { width: 50px; }
+        .txtCarrera { width: 220px; }
+        .btnAgregar {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+        .textoTotal {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #1976d2;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        td:first-child, th:first-child {
+            text-align: left;
+        }
+        .resaltado {
+            background-color: #fff3cd;
+            color: #856404;
+            font-weight: bold;
+        }
+        .btn-eliminar {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h2>Sistema de Registro de Estudiantes</h2>
+        
+        <div class="caja-form">
+            <div class="grupo">
+                <label>Nombre</label>
+                <input type="text" id="txtNombre" placeholder="Carlos Mamani">
+            </div>
+            <div class="grupo">
+                <label>Edad</label>
+                <input type="text" id="txtEdad" placeholder="22">
+            </div>
+            <div class="grupo">
+                <label>Carrera</label>
+                <input type="text" id="txtCarrera" placeholder="Ing. Cs. Computación">
+            </div>
+            <div class="grupo">
+                <input type="button" id="btnAgregar" value="Agregar">
+            </div>
+            <p class="textoTotal">Total estudiantes registrados: <span id="totalEstudiantes">0</span></p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Carrera</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        var btnAgregar = document.getElementById("btnAgregar");
+        var cuerpoTabla = document.getElementById("cuerpoTabla");
+        var totalSpan = document.getElementById("totalEstudiantes");
+
+        btnAgregar.onclick = function() {
+            var nombre = document.getElementById("txtNombre").value;
+            var edad = document.getElementById("txtEdad").value;
+            var carrera = document.getElementById("txtCarrera").value;
+
+            if(nombre == "" || edad == "" || carrera == "") {
+                return false;
+            }
+
+            var tr = document.createElement("tr");
+            
+            if(parseInt(edad) > 25) {
+                tr.setAttribute("class", "resaltado");
+            }
+
+            var tdNombre = document.createElement("td"); 
+            tdNombre.textContent = nombre;
+            
+            var tdEdad = document.createElement("td"); 
+            tdEdad.textContent = edad;
+            
+            var tdCarrera = document.createElement("td"); 
+            tdCarrera.textContent = carrera;
+            
+            var tdAccion = document.createElement("td");
+            
+            var btnEliminar = document.createElement("input");
+            btnEliminar.setAttribute("type", "button");
+            btnEliminar.setAttribute("value", "Eliminar");
+            btnEliminar.setAttribute("class", "btn-eliminar");
+            
+            btnEliminar.onclick = function() {
+                cuerpoTabla.removeChild(tr);
+                var filas = cuerpoTabla.getElementsByTagName("tr");
+                totalSpan.textContent = filas.length;
+            };
+
+            tdAccion.appendChild(btnEliminar);
+            
+            tr.appendChild(tdNombre);
+            tr.appendChild(tdEdad);
+            tr.appendChild(tdCarrera);
+            tr.appendChild(tdAccion);
+            
+            cuerpoTabla.appendChild(tr);
+            
+            var filas = cuerpoTabla.getElementsByTagName("tr");
+            totalSpan.textContent = filas.length;
+
+            document.getElementById("txtNombre").value = "";
+            document.getElementById("txtEdad").value = "";
+            document.getElementById("txtCarrera").value = "";
+        };
+    </script>
+</body>
+</html>

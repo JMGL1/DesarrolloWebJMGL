@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio 1 - Tabla de colores</title>
+    <style>
+        td { width: 50px; height: 50px; border: 1px solid #000; cursor: pointer; }
+        table { border-collapse: collapse; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h3>Tabla 5x5 con selector de color</h3>
+    
+    <!-- Se crea la tabla 5x5 -->
+    <table id="tablaColores">
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    
+    Color seleccionado: <input type="color" id="selectorColor">
+
+    <script type="text/javascript">
+        // Acceso directo a los nodos (Tema 4)
+        let celdas = document.getElementsByTagName("td");
+        let inputColor = document.getElementById("selectorColor");
+
+        // Bucle para recorrer todas las celdas
+        for(let i = 0; i < celdas.length; i++) {
+            // Manejador de evento semántico (Tema 4)
+            celdas[i].onclick = function() {
+                // Se lee el valor del input y se asigna al estilo de la celda (this)
+                this.style.backgroundColor = inputColor.value;
+            };
+        }
+    </script>
+</body>
+</html>

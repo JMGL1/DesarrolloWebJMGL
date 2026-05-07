@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Interruptor de Estilo Dinámico</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px auto;
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 320px;
+            background-color: white; 
+            color: black;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        #btnModo {
+            background-color: #1a1a1a;
+            color: white;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 40px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .estado-texto {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            margin-top: 30px;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+    
+    <h3>Mi sitio</h3>
+    <p id="textoPrincipal">Contenido en color oscuro<br>sobre fondo blanco.</p>
+
+    <input type="button" id="btnModo" value="Modo Oscuro">
+
+    <p id="textoEstado" class="estado-texto">Estado inicial</p>
+
+    <script type="text/javascript">
+
+        var cuerpo = document.getElementsByTagName("body")[0];
+        var btnModo = document.getElementById("btnModo");
+        var textoPrincipal = document.getElementById("textoPrincipal");
+        var textoEstado = document.getElementById("textoEstado");
+
+        btnModo.onclick = function() {
+            
+            if (cuerpo.style.backgroundColor === "white") {
+                
+                cuerpo.style.backgroundColor = "#1a1a1a";
+                cuerpo.style.color = "white";
+
+                btnModo.value = "Modo Claro";
+                btnModo.style.backgroundColor = "white";
+                btnModo.style.color = "black";
+
+                textoPrincipal.innerHTML = "Contenido en color claro<br>sobre fondo negro.";
+                textoEstado.innerHTML = "Después del clic";
+                
+            } else {
+ 
+                cuerpo.style.backgroundColor = "white";
+                cuerpo.style.color = "black";
+
+                btnModo.value = "Modo Oscuro";
+                btnModo.style.backgroundColor = "#1a1a1a";
+                btnModo.style.color = "white";
+
+                textoPrincipal.innerHTML = "Contenido en color oscuro<br>sobre fondo blanco.";
+                textoEstado.innerHTML = "Estado inicial";
+            }
+        };
+    </script>
+</body>
+</html>
