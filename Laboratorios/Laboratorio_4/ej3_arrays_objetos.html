@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Ejercicio 3 - Arrays y Objetos (Gestión de Estudiantes)</title>
+
+  <style type="text/css">
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+    h2   { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; }
+    th { background: #34495e; color: #fff; padding: 10px 14px; text-align: left; border: 1px solid #999; }
+    td { padding: 8px 14px; border: 1px solid #ccc; }
+    p  { font-weight: bold; }
+  </style>
+
+  <script type="text/javascript" language="javascript">
+
+    function Estudiante(nombre, n1, n2, n3) {
+      this.nombre = nombre;
+      this.nota1  = n1;
+      this.nota2  = n2;
+      this.nota3  = n3;
+    }
+
+    Estudiante.prototype.promedio = function() {
+      return ((this.nota1 + this.nota2 + this.nota3) / 3).toFixed(2);
+    };
+
+    Estudiante.prototype.estado = function() {
+      return parseFloat(this.promedio()) >= 51 ? 'Aprobado' : 'Reprobado';
+    };
+
+  </script>
+</head>
+<body>
+
+  <h2>Ejercicio 3 - Arrays y Objetos (Gesti&oacute;n de Estudiantes)</h2>
+
+  <div id="tabla"></div>
+  <p id="resumen"></p>
+  <p id="nombres"></p>
+
+  <script type="text/javascript" language="javascript">
+
+    var estudiantes = [
+      new Estudiante('Ana Lopez',  75, 82, 90),
+      new Estudiante('Luis Rios',  40, 55, 48),
+      new Estudiante('Maria Paz',  88, 92, 85),
+      new Estudiante('Juan Abad',  60, 70, 65),
+      new Estudiante('Sofia Cruz', 30, 45, 50)
+    ];
+
+    var aprobados = estudiantes.filter(function(e) {
+      return parseFloat(e.promedio()) >= 51;
+    });
+
+    document.getElementById('resumen').innerHTML =
+      'Aprobados: ' + aprobados.length + ' de ' + estudiantes.length;
+
+    var nombres = estudiantes.map(function(e) { return e.nombre; });
+
+    document.getElementById('nombres').textContent =
+      'Nombres (map): ' + nombres.join(', ');
+
+    var html = '<table border=1><tr>'
+             + '<th>Nombre</th><th>P1</th>'
+             + '<th>P2</th><th>P3</th><th>Prom</th><th>Estado</th>'
+             + '</tr>';
+
+    estudiantes.forEach(function(e) {
+      var bg = e.estado() === 'Aprobado' ? '#D1FAE5' : '#FEE2E2';
+      html += '<tr style="background:' + bg + '">'
+            + '<td>' + e.nombre    + '</td>'
+            + '<td>' + e.nota1     + '</td>'
+            + '<td>' + e.nota2     + '</td>'
+            + '<td>' + e.nota3     + '</td>'
+            + '<td>' + e.promedio() + '</td>'
+            + '<td>' + e.estado()  + '</td>'
+            + '</tr>';
+    });
+
+    html += '</table>';
+    document.getElementById('tabla').innerHTML = html;
+
+    console.log(JSON.stringify(estudiantes[0]));
+
+  </script>
+
+</body>
+</html>

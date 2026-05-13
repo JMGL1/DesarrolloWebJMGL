@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Ejercicio 1 - JavaScript Basico</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      border: 1px solid black;
+      padding: 5px 10px;
+    }
+  </style>
+
+  <!-- Funciones definidas en el head -->
+  <script type="text/javascript" language="javascript">
+
+    // clasifica la edad del usuario
+    function clasificar(e) {
+      if (e < 18)      return 'Menor de edad';
+      else if (e < 30) return 'Joven';
+      else if (e < 60) return 'Adulto';
+      else             return 'Senior';
+    }
+
+    // dice si el numero es par o impar
+    function parImpar(num) {
+      return (num % 2 === 0) ? 'par' : 'impar';
+    }
+
+    // calcula el factorial con un bucle for
+    function factorial(x) {
+      var f = 1;
+      for (var j = 2; j <= x; j++) {
+        f *= j;
+      }
+      return f;
+    }
+
+  </script>
+</head>
+<body>
+
+  <h2>Ejercicio 1 - JavaScript Basico</h2>
+
+  <script type="text/javascript" language="javascript">
+
+    // pedir datos al usuario con prompt
+    // parseInt() para convertir a numero entero
+    var nombre = prompt('Ingresa tu nombre:');
+    var edad   = parseInt(prompt('Ingresa tu edad:'));
+    var n      = parseInt(prompt('Numero para la tabla:'));
+
+    // tabla de multiplicar con document.write
+    document.write('<h3>Tabla de multiplicar de ' + n + '</h3>');
+    document.write('<table border=1>');
+    for (var i = 1; i <= 10; i++) {
+      document.write('<tr><td>' + n + ' x ' + i + '</td><td>' + (n * i) + '</td></tr>');
+    }
+    document.write('</table>');
+
+    // mostrar clasificacion, factorial y paridad con alert
+    alert('Hola ' + nombre +
+      '\nClasificacion: ' + clasificar(edad) +
+      '\n' + n + '! = ' + factorial(n) +
+      '\n' + n + ' es ' + parImpar(n));
+
+  </script>
+
+</body>
+</html>
