@@ -1,0 +1,23 @@
+<div>
+    <h3>Selector avanzado de temas</h3>
+    <div style="margin-bottom: 15px;">
+        <label for="colorInput">Seleccionar color:</label>
+        <input type="color" id="colorInput" value="#ff0000">
+        <button onclick="agregarColor()">Añadir Color</button>
+    </div>
+
+    <h4>Tarjetas de Colores</h4>
+    <div id="gridColor" class="grid-colores">
+        <!-- Tarjetas agregadas dinamicamente -->
+    </div>
+
+    <div style="margin-top: 20px;">
+        <label for="selectTema">Tema del Menú/Página:</label>
+        <select id="selectTema" onchange="cambiarTema()">
+            <option value="claro">Claro</option>
+            <option value="oscuro">Oscuro</option>
+            <option value="contraste">Contraste</option>
+            <option value="pastel">Pastel</option>
+        </select>
+    </div>
+</div>
